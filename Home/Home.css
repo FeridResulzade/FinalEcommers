@@ -1,0 +1,36 @@
+.hero img {
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.p-3 {
+    padding: 7rem !important;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.fs-4 {
+    color: #ff0019;
+}
+
+
+section .row p {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+
+button.btn {
+    min-width: 120px;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}
+.carousel-iphone img{
+    width: 200px;
+    height: 1000px;
+}
