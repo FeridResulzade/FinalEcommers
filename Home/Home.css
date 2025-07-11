@@ -34,3 +34,6 @@ button.btn:hover {
     width: 200px;
     height: 1000px;
 }
+.carousel-item{
+    height: 600px;
+}

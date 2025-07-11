@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E-commerce</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d16bd07435.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="About.css">
-  <link rel="stylesheet" href="../Home/Foother.css">
   <link rel="stylesheet" href="../Home/Header.css">
+  <link rel="stylesheet" href="../Home/Home.css">
+  <link rel="stylesheet" href="../Home/Foother.css">
+  <link rel="stylesheet" href="Paying.css">
 </head>
 
-<body>
-   <header class="text-white">
+
+ <header class="text-white">
         <div class="bg-danger text-center p-2">Super deal! Get free shipping on orders over $50</div>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -29,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href="../Sing Up/signUp.html">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link" href="../Shop/Shop.html">Shop</a></li>
                     </ul>
-                    <div class="d-flex align-items-center loginNavItems">
+                    <div class="loginNavItems">
                         <div class="search-bar">
                             <input type="text" class="header-search" placeholder="Search ">
                             <i class="fa-solid fa-magnifying-glass searchIcon"></i>
@@ -47,65 +52,45 @@
             </div>
         </nav>
     </header>
-  <section class="about-section">
-    <div class="container">
-      <div class="text-content">
-        <h2>Our Story</h2>
-        <p>
-          Launched in 2015, Exclusive is South Asia’s premier online shopping marketplace with an active presence in
-          Bangladesh.
-          Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sellers and
-          300 brands
-          and serves 3 millions customers across the region.
-        </p>
-        <p>
-          Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse
-          assortment in
-          categories ranging from consumer.
-        </p>
-      </div>
-      <div class="image-content">
-        <img src="./972bf75f146f0dc0ab94b892e0120fe7336eebe3.jpg" alt="Shopping Online">
-      </div>
+<body>
+    <div class="payment-container">
+        <h2>Ödəniş Məlumatı</h2>
+        <div class="details">
+            <p>Ümumi məbləğ: <span id="subtotal">0.00$</span></p>
+            <p>Çatdırılma: <span id="shipping">FREE</span></p>
+            <p><strong>Cəmi: <span id="total">0.00$</span></strong></p>
+        </div>
     </div>
-  </section>
+   <body>
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+    
+    <form class="billing-form">
+      <input type="text" placeholder="First name" required />
+      <input type="text" placeholder="Last name" required />
+      <input type="text" placeholder="City" required />
+      <input type="text" placeholder="Address" required />
+      <input type="text" placeholder="Zip Code" required />
+      <input type="tel" placeholder="Phone" required />
+      <input type="email" placeholder="Email" required />
+    </form>
 
-  <section class="team-section">
-    <div class="team-member">
-      <img src="./088149fd5afc043392ee3cbb529f429b3e2098d3.png" alt="Emin Sadiqli">
-      <h3>Emin Sadiqli</h3>
-      <p>Founder & Chairman</p>
-      <div class="social-icons">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin"></i>
-      </div>
+    <div class="cart-summary">
+      <h3>Cart Summary</h3>
+      <ul id="product-list">
+       
+      </ul>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <p>Shipping: <strong>FREE</strong></p>
+      <p>Total: $<span id="total">0.00</span></p>
+      <button onclick="placeOrder()">Place Order</button>
     </div>
+  </div>
 
-    <div class="team-member">
-      <img src="./88de2e96185258469e92d25b0927f7c574289ae3.jpg" alt="Iman Imanov">
-      <h3>Iman Imanov</h3>
-      <p>Managing Director</p>
-      <div class="social-icons">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin"></i>
-      </div>
-    </div>
+  <script src="paying.js"></script>
+</body>
 
-    <div class="team-member">
-      <img src="ede48f2b5df8103b281240ce5bafe5dd7d215ab8.png" alt="Nicat Piriyev">
-      <h3>Nicat Piriyev</h3>
-      <p>Product Designer</p>
-      <div class="social-icons">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin"></i>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
+  <footer class="footer bg-danger">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -122,20 +107,20 @@
         <div class="col-md-2">
           <h5>Account</h5>
           <ul class="list-unstyled">
-            <li><a href="../account/account.html">My Account</a></li>
-            <li><a href="../login/login.html">Login / Register</a></li>
-            <li><a href="../card/card.html">Cart</a></li>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="../shop/shop.html">Shop</a></li>
+            <li><a href="../account/account.html" style="color: white;text-decoration:none;">My Account</a></li>
+            <li><a href="../login/login.html" style="color: white;text-decoration:none;">Login / Register</a></li>
+            <li><a href="../card/card.html" style="color: white;text-decoration:none;">Cart</a></li>
+            <li><a href="#" style="color: white;text-decoration:none;">Wishlist</a></li>
+            <li><a href="../shop/shop.html" style="color: white;text-decoration:none;">Shop</a></li>
           </ul>
         </div>
         <div class="col-md-2">
           <h5>Quick Link</h5>
           <ul class="list-unstyled">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms Of Use</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#" style="color: white;text-decoration:none;">Privacy Policy</a></li>
+            <li><a href="#" style="color: white;text-decoration:none;">Terms Of Use</a></li>
+            <li><a href="#" style="color: white;text-decoration:none;">FAQ</a></li>
+            <li><a href="#" style="color: white;text-decoration:none;">Contact</a></li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -163,8 +148,8 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../header.js"></script>
-
 </body>
 
 </html>

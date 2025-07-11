@@ -12,34 +12,40 @@
 </head>
 
 <body>
-  <header class="text-white">
-    <div class="bg-danger text-center p-2">Super deal! Get free shipping on orders over $50</div>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">E-commerce</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="../Home/index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="./">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="../About/About.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Sing Up/sing up.html">Sign Up</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Shop/Shop.html">Shop</a></li>
-          </ul>
-          <div class="search-bar">
-            <input type="text" placeholder="Search ">
-            <button type="button" class="btn btn-light"><img src="search.svg" alt=""></button>
-          </div>
-          <a href="../Səbət/Səbət.html" class="btn btn-light"><i class="fa-solid fa-cart-shopping fa-bounce"></i></a>
-          <a href="../Profile/profile.html" class="btn btn-light"><i class="fa-regular fa-user"></i></a>
-          <a href="../Login/login.html" class="btn btn-danger log-in" style="text-decoration: none; color: white;">Log
-            in</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+ <header class="text-white">
+        <div class="bg-danger text-center p-2">Super deal! Get free shipping on orders over $50</div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">E-commerce</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../Home/index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Contact/CONTACT.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../About/About.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Sing Up/signUp.html">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Shop/Shop.html">Shop</a></li>
+                    </ul>
+                    <div class="loginNavItems">
+                        <div class="search-bar">
+                            <input type="text" class="header-search" placeholder="Search ">
+                            <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                        </div>
+                        <a href="../Səbət/Səbət.html" class="btn btn-light ml-5"><i
+                                class="fa-solid fa-cart-shopping fa-bounce"></i></a>
+                        <a href="../Profile/profile.html" class="btn btn-light ml-5"><i class="fa-regular fa-user"></i>
+                            <span id="username"></span></a>
+                    </div>
+                    <a href="../Login/login.html" class="btn btn-danger log-in ml-5"
+                        style="text-decoration: none; color: white;">Log in</a>
+                    <a href="../Home/index.html" class="btn btn-danger log-out ml-5"
+                        style="text-decoration: none; color: white;">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
   <div class="container">
     <h1>Product page</h1>
@@ -160,7 +166,7 @@
       </div>
     </div>
   </footer>
-
+<script src="../../header.js"></script>
 </body>
 
 </html>

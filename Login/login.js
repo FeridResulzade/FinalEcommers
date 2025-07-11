@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       formobject.forEach((value, key) => {
         data[key] = value;
       });
+      console.log(data)
 
       fetch("http://195.26.245.5:9505/api/auth", {
         method: "POST",
@@ -20,12 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then(response => response.json())
         .then(result => {
-          if (result.success) {
-            
-            window.location.href = "../account/account.html";
-          } else {
-            alert("Login failed! Please check your username and password.");
+          if (result.statusCodeValue !== 200) {
+            alert(result.message || "Login failed! Please check your username and password.");
+            return;
           }
+          
+            localStorage.setItem("user", JSON.stringify(result.body));
+            window.location.href = "../Profile/profile.html";
+        
+            
+       
         })
         .catch(() => {
           alert("Server error!");

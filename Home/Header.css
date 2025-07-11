@@ -26,3 +26,24 @@ header .navbar-text {
 .nav-button{
 border-color: white;
 }
+.ml-5{
+    margin-left: 5px !important;
+}
+.header-search{
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.searchIcon{
+       position: absolute;
+    top: 11px;
+    right: 10px;
+    color: black;
+}
+.search-bar{
+    position: relative;
+}
+
+.loginNavItems {
+    display: flex;
+    align-items: center;
+}
