@@ -26,3 +26,5 @@ logoutBtn.addEventListener('click', function() {
 })
 
 console.log(loginNavItems);
+
+localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) :localStorage.setItem('cart', JSON.stringify([]));

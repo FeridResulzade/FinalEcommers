@@ -1,32 +1,36 @@
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsContainer = document.getElementById("cart-items");
+  cartItemsContainer.innerHTML = "";
 
-function updateCart() {
-  let cartItems = document.querySelectorAll("#cart-items tr");
-  let subtotal = 0;
+  let total = 0;
 
-  cartItems.forEach(row => {
-    const price = parseFloat(row.querySelector(".price").textContent);
-    const qtyInput = row.querySelector(".qty");
-    const qty = parseInt(qtyInput.value);
-    const itemSubtotal = price * qty;
+  cart.forEach((item, index) => {
+    const subtotal = item.price;
+    total += subtotal;
 
-    row.querySelector(".subtotal").textContent = itemSubtotal.toFixed(2);
-    subtotal += itemSubtotal;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>
+        <img src="${item.imageUrl}" alt="${item.model}" width="50" />
+        ${item.model}
+      </td>
+      <td class="price">${item.price.toFixed(2)}</td>
+      <td><input type="number" class="qty" value="1" min="1" data-index="${index}" /></td>
+      <td class="subtotal">${subtotal.toFixed(2)}</td>
+      <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+    `;
+    cartItemsContainer.appendChild(row);
   });
 
-  document.getElementById("cart-subtotal").textContent = subtotal.toFixed(2);
-  document.getElementById("cart-total").textContent = subtotal.toFixed(2);
-}
+  document.getElementById("cart-subtotal").textContent = total.toFixed(2);
+  document.getElementById("cart-total").textContent = total.toFixed(2);
 
-
-document.querySelectorAll(".qty").forEach(input => {
-  input.addEventListener("change", updateCart);
-});
-
-document.querySelectorAll(".remove-btn").forEach(button => {
-  button.addEventListener("click", function () {
-    this.closest("tr").remove();
-    updateCart();
+  // Remove item
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const index = e.target.getAttribute("data-index");
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    });
   });
-});
-
-updateCart();

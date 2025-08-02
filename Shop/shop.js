@@ -46,6 +46,7 @@ function getProducts(categoryId){
                     <button class="btn btn-danger btn-add-to-cart" data-id="${product.id}">Add to cart</button>
                 `;
                 productCard.onclick = () => {
+                    localStorage.setItem("selectedProduct", JSON.stringify(product));
                     window.location.href = `./Məhsul/məhsul.html`;
                 }
                 productList.appendChild(productCard);

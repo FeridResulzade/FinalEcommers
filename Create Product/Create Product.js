@@ -1,35 +1,47 @@
-document.getElementById("productForm").addEventListener("submit", function (event)) {
-    event.preventDefault()
-  
-    const productData = {
-        brand: document.getElementById("brand").value,
-        model: document.getElementById("model").value,
-        category: document.getElementById("category").value,
-        description: document.getElementById("description").value,
-        price: parseFloat(document.getElementById("price").value),
-        rating: parseFloat(document.getElementById("rating").value),
-        imageurl: document.getElementById("imageurl").value
-    }
+let category = document.getElementById("category");
 
-    fetch("http://195.26.245.5:9505/api/products/myProducts?page=1&size=1", {
+
+fetch('http://195.26.245.5:9505/api/categories')
+    .then(response => response.json())
+    .then(categories => {
+        categories.forEach(obj => {
+            const option = document.createElement("option");
+            option.value = obj.id;
+            option.innerHTML = obj.name;
+            category.append(option);
+        });
+    })
+
+document.getElementById("productForm").addEventListener("submit", function (event) {
+    event.preventDefault()
+
+
+
+    let formData = new FormData(event.target);
+    let productData = Object.fromEntries(formData.entries());
+
+    fetch("http://195.26.245.5:9505/api/products", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).token : ''}`
         },
         body: JSON.stringify(productData)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Server error: " + response.status)
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert("Product successfully saved!");
-        console.log(data);
-        document.getElementById("productForm").reset();
-    .catch(error => {
-        console.error("Error:", error)
-        alert("Failed to save product. Please try again.")
-    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Server error: " + response.status)
+            }
+            window.location.href = "../shop/shop.html";
+            return response.json();
+        })
+        .then(data => {
+            alert("Product successfully saved!");
+            console.log(data);
+            document.getElementById("productForm").reset();
+        })
+        .catch(error => {
+            console.error("Error:", error)
+            alert("Failed to save product. Please try again.")
+        })
 })
